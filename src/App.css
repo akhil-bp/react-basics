@@ -22,7 +22,18 @@
 .App-link {
   color: #61dafb;
 }
-
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+.card{
+  border: 2px solid #92464657;
+  float: left;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
