@@ -2,38 +2,53 @@ import React from 'react';
 import axios from 'axios';
 import Card from './card';
 import Formtwo from './formtwo';
-
+const env = require('./env')
 
 export default class Home extends React.Component {
-    
 
-    constructor() {
-        super()
+
+    constructor(props) {
+        super(props);
+
+        console.log(this.props);
         this.state = {
             name: "ajo",
             place: "mala",
             user: null,
             values: [],
-            sent_data:{}
+            sent_data: {}
         }
     }
-    componentDidMount(){
+    componentWillUnmount() {
+        clearInterval(this.timer)
+    }
+    componentDidMount() {
+        this.timer = setInterval(() => {
+            console.log(Date.now())
+        }, 3000)
         let sent_data = this.state.sent_data;
-        sent_data['name']="sampli"
-        sent_data['gmail']="sample@gmail"
-        sent_data['imageurl']="https://i1.fnp.com/images/pr/l/romancing-roses-n-daisies_1.jpg"
+        sent_data['name'] = "sampli"
+        sent_data['gmail'] = "sample@gmail"
+        sent_data['imageurl'] = "https://i1.fnp.com/images/pr/l/romancing-roses-n-daisies_1.jpg"
 
         this.setState({
-            sent_data:sent_data
+            sent_data: sent_data
         })
+
+        setInterval(() => { this.setState({ time: <span className="bg-warning">TIME : <b> {new Date().toLocaleTimeString()}</b>.</span> }) }, 1000)
+        if (!env.envData.isLoggedIn == true) {
+            // alert("hi")
+            let path = "/form";
+            this.props.history.push(path);
+        }
     }
     upadeState(val) {
         this.setState({
             name: val.target.value
         })
     }
-    get_tr = (val)=>{
-        console.log(val,"data")
+    get_tr = (val) => {
+        console.log(val, "data")
         alert(JSON.stringify(val))
         // alert(val)
 
@@ -50,7 +65,7 @@ export default class Home extends React.Component {
 
                     return (
 
-                        <tr key={val.id} onClick={()=>{this.get_tr(val)}}>
+                        <tr key={val.id} onClick={() => { this.get_tr(val) }}>
                             <td>{val.id}</td>
                             <td>{val.username}</td>
                             <td>{val.phone}</td>
@@ -77,9 +92,9 @@ export default class Home extends React.Component {
                 this.setState({ user: arrayValues })
             })
     }
-    triggerfun(e){
+    triggerfun(e) {
         e.persist();
-        console.log('triggerfun working',e)
+        console.log('triggerfun working', e)
 
     }
     // ddd(e){
@@ -89,12 +104,13 @@ export default class Home extends React.Component {
     ddd = (val) => {
         // this.setState({...formModel});
         console.log(val)
-      }
+    }
     render() {
         return (
-            
+
             <div >
-            <Card data={this.state.sent_data} triggerfun={this.triggerfun.bind()}/>
+                {this.state.time}
+                <Card data={this.state.sent_data} triggerfun={this.triggerfun.bind()} />
 
                 <input type="text" onChange={this.upadeState.bind(this)} ></input>
                 <p>

@@ -40,6 +40,8 @@ export default class App extends Component {
             <Route path="/dynamic" component={Dynamic} exact />
             <Route path="/param/:id/:val" component={Param} />
             <Route path="/formtwo" component={Formtwo} />
+            <Route path="/header" component={Header} />
+
 
           </Switch>
           <Footer />
