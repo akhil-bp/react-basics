@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom"
 const env = require('./env')
 
 export default class header extends React.Component {
-    componentDidMount(){
-       
+    componentDidMount() {
+
     }
-    logout = ()=>{
+    logout = () => {
         env.envData.isLoggedIn = false
     }
-    login = ()=>{
+    login = () => {
         env.envData.isLoggedIn = true
     }
     render() {
@@ -20,6 +20,8 @@ export default class header extends React.Component {
                     <li><NavLink to="/home">Home (static card , table list, response from another form component)</NavLink></li>
                     <li><NavLink to="/form">Dashboard (form , dynamic cards with each click response (sent whole and each array to card))</NavLink></li>
                     <li><NavLink to="/param/idParam/valParam">param (get param val from url)</NavLink></li>
+                    <li><NavLink to="/variable-render-html">Render html through variable / sticky / fixed</NavLink></li>
+                    <li><NavLink to="/lazy-div">LAzy load DIV or Component...footer is also lazy loaded</NavLink></li>
                 </ul>
             </div>
         )

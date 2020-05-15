@@ -8,6 +8,10 @@ import Param from './components/param'
 import Card from './components/card'
 import Dynamic from './components/card_dynamic'
 import Formtwo from './components/formtwo'
+import VariableRenderHtml from './components/const_render_html'
+import LazyLoad from './components/lazy_div'
+
+
 
 
 
@@ -34,6 +38,7 @@ export default class App extends Component {
         <div>
           <Header />
           <Switch>
+            
             <Route path="/home" component={Home} exact />
             <Route path="/form" component={Form} exact />
             <Route path="/card" component={Card} exact />
@@ -41,8 +46,8 @@ export default class App extends Component {
             <Route path="/param/:id/:val" component={Param} />
             <Route path="/formtwo" component={Formtwo} />
             <Route path="/header" component={Header} />
-
-
+            <Route path="/variable-render-html" component={VariableRenderHtml} />
+            <Route path="/lazy-div" component={LazyLoad} />
           </Switch>
           <Footer />
         </div>
