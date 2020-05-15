@@ -10,6 +10,7 @@ import Dynamic from './components/card_dynamic'
 import Formtwo from './components/formtwo'
 import VariableRenderHtml from './components/const_render_html'
 import LazyLoad from './components/lazy_div'
+import Greeting from './components/hooks_sample'
 
 
 
@@ -48,6 +49,7 @@ export default class App extends Component {
             <Route path="/header" component={Header} />
             <Route path="/variable-render-html" component={VariableRenderHtml} />
             <Route path="/lazy-div" component={LazyLoad} />
+            <Route path="/hook" component={Greeting} />
           </Switch>
           <Footer />
         </div>

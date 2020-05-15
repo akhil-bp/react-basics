@@ -42,3 +42,14 @@ th, td {
     transform: rotate(360deg);
   }
 }
+.box{
+  padding: 20px;
+    width: 300px;
+    text-align: center;
+    background: #291c9c;
+    margin: 12px;
+
+}
+h3{
+  color:white
+}
