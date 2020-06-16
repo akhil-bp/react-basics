@@ -114,7 +114,9 @@ const VariableDiv = ({ id, title, body }) => (
     </div>
 )
 const Loading = () => (
-    <h2 >Loading......</h2>
+    <h2 >
+        Loading......</h2>
+
 )
 
 export default class LazyDiv extends React.Component {

@@ -4,6 +4,7 @@ import Home from './components/home'
 import Header from './components/header'
 import Footer from './components/footer'
 import Form from './components/form'
+import registerForm from './components/registerForm'
 import Param from './components/param'
 import Card from './components/card'
 import Dynamic from './components/card_dynamic'
@@ -41,6 +42,7 @@ export default class App extends Component {
           <Switch>
             
             <Route path="/home" component={Home} exact />
+            <Route path="/register-form" component={registerForm} exact />
             <Route path="/form" component={Form} exact />
             <Route path="/card" component={Card} exact />
             <Route path="/dynamic" component={Dynamic} exact />
