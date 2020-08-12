@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom"
 const env = require('./env')
 
 export default class header extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             loader: true
         }
@@ -16,6 +16,7 @@ export default class header extends React.Component {
     }
     logout = () => {
         env.envData.isLoggedIn = false
+        // this.props.history.push(`/`);
     }
     login = () => {
         env.envData.isLoggedIn = true
@@ -32,6 +33,7 @@ export default class header extends React.Component {
                         <li><NavLink to="/variable-render-html">Render html through variable / sticky / fixed</NavLink></li>
                         <li><NavLink to="/lazy-div">LAzy load DIV or Component...footer is also lazy loaded</NavLink></li>
                         <li><NavLink to="/register-form">form normal all validations</NavLink></li>
+                        <li><NavLink to="/hook">hook</NavLink></li>
                     </ul>
                 }
                 {

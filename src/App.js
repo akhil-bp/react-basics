@@ -1,61 +1,57 @@
 
 import './App.css';
-import Home from './components/home'
-import Header from './components/header'
-import Footer from './components/footer'
-import Form from './components/form'
-import registerForm from './components/registerForm'
-import Param from './components/param'
-import Card from './components/card'
-import Dynamic from './components/card_dynamic'
-import Formtwo from './components/formtwo'
-import VariableRenderHtml from './components/const_render_html'
-import LazyLoad from './components/lazy_div'
-import Greeting from './components/hooks_sample'
 
-
-
-
-
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>Edit src/App.js and save to reload.</p>
-//         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-//       </header>
-//     </div>
-//   );
-// }
+import React, { Component, Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch ,Redirect } from 'react-router-dom';
+import requireAuth from './components/authComponent';
+const Home = lazy(() => import('./components/home'));
+const Header = lazy(() => import('./components/header'))
+const Footer = lazy(() => import('./components/footer'))
+const Form = lazy(() => import('./components/form'))
+const registerForm = lazy(() => import('./components/registerForm'))
+const Param = lazy(() => import('./components/param'))
+const Card = lazy(() => import('./components/card'))
+const Dynamic = lazy(() => import('./components/card_dynamic'))
+const Formtwo = lazy(() => import('./components/formtwo'))
+const VariableRenderHtml = lazy(() => import('./components/const_render_html'))
+const LazyLoad = lazy(() => import('./components/lazy_div'))
+const Greeting = lazy(() => import('./components/hooks_sample'))
+// import Header from './components/header'
+// import Footer from './components/footer'
+// import Form from './components/form'
+// import registerForm from './components/registerForm'
+// import Param from './components/param'
+// import Card from './components/card'
+// import Dynamic from './components/card_dynamic'
+// import Formtwo from './components/formtwo'
+// import VariableRenderHtml from './components/const_render_html'
+// import LazyLoad from './components/lazy_div'
+// import Greeting from './components/hooks_sample'
 
 export default class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div>
+      <Router>
+        <Suspense fallback={<div>loading..</div>}>
           <Header />
           <Switch>
-            
-            <Route path="/home" component={Home} exact />
-            <Route path="/register-form" component={registerForm} exact />
-            <Route path="/form" component={Form} exact />
-            <Route path="/card" component={Card} exact />
-            <Route path="/dynamic" component={Dynamic} exact />
-            <Route path="/param/:id/:val" component={Param} />
-            <Route path="/formtwo" component={Formtwo} />
-            <Route path="/header" component={Header} />
-            <Route path="/variable-render-html" component={VariableRenderHtml} />
-            <Route path="/lazy-div" component={LazyLoad} />
+            <Route path="/home" component={requireAuth(Home)} exact />
+            <Route path="/register-form" component={requireAuth(registerForm)} exact />
+            <Route path="/form" component={requireAuth(Form)} exact />
+            <Route path="/card" component={requireAuth(Card)} exact />
+            <Route path="/dynamic" component={requireAuth(Dynamic)} exact />
+            <Route path="/param/:id/:val" component={requireAuth(Param)} />
+            <Route path="/formtwo" component={requireAuth(Formtwo)} />
+            <Route path="/header" component={requireAuth(Header)} />
+            <Route path="/variable-render-html" component={requireAuth(VariableRenderHtml)} />
+            <Route path="/lazy-div" component={requireAuth(LazyLoad)} />
             <Route path="/hook" component={Greeting} />
+            {/* {!this.state.auth &&  <Redirect push to="/"/> } */}
           </Switch>
           <Footer />
-        </div>
-      </BrowserRouter>
+        </Suspense>
+      </Router>
     );
 
   }
