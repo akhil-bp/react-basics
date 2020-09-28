@@ -1,3 +1,6 @@
+.active{
+  color: red  ;
+}
 .App {
   text-align: center;
 }
@@ -52,4 +55,9 @@ th, td {
 }
 h3{
   color:white
+}
+.layout{
+  padding: 10px;
+  height: 300px;
+  background: yellow;
 }

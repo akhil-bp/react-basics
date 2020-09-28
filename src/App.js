@@ -2,7 +2,7 @@
 import './App.css';
 
 import React, { Component, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch ,Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import requireAuth from './components/authComponent';
 const Home = lazy(() => import('./components/home'));
 const Header = lazy(() => import('./components/header'))
@@ -16,6 +16,7 @@ const Formtwo = lazy(() => import('./components/formtwo'))
 const VariableRenderHtml = lazy(() => import('./components/const_render_html'))
 const LazyLoad = lazy(() => import('./components/lazy_div'))
 const Greeting = lazy(() => import('./components/hooks_sample'))
+const Layout = lazy(() => import('./components/multi_routing/components/Layout'))
 // import Header from './components/header'
 // import Footer from './components/footer'
 // import Form from './components/form'
@@ -47,6 +48,7 @@ export default class App extends Component {
             <Route path="/variable-render-html" component={requireAuth(VariableRenderHtml)} />
             <Route path="/lazy-div" component={requireAuth(LazyLoad)} />
             <Route path="/hook" component={Greeting} />
+            <Route path="/nav" name="nav" render={props => <Layout {...props} />} />
             {/* {!this.state.auth &&  <Redirect push to="/"/> } */}
           </Switch>
           <Footer />

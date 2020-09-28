@@ -27,13 +27,14 @@ export default class header extends React.Component {
                 <h2>Header</h2><button onClick={this.logout}>logout</button><button onClick={this.login}>login</button>
                 {
                     !this.state.loader && <ul>
-                        <li><NavLink to="/home">Home (static card , table list, response from another form component)</NavLink></li>
-                        <li><NavLink to="/form">Dashboard (form , dynamic cards with each click response (sent whole and each array to card))</NavLink></li>
-                        <li><NavLink to="/param/idParam/valParam">param (get param val from url)</NavLink></li>
-                        <li><NavLink to="/variable-render-html">Render html through variable / sticky / fixed</NavLink></li>
-                        <li><NavLink to="/lazy-div">LAzy load DIV or Component...footer is also lazy loaded</NavLink></li>
-                        <li><NavLink to="/register-form">form normal all validations</NavLink></li>
-                        <li><NavLink to="/hook">hook</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/home">Home (static card , table list, response from another form component)</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/form">Dashboard (form , dynamic cards with each click response (sent whole and each array to card))</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/param/idParam/valParam">param (get param val from url)</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/variable-render-html">Render html through variable / sticky / fixed</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/lazy-div">LAzy load DIV or Component...footer is also lazy loaded</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/register-form">form normal all validations</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/hook">hook</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/nav/home">Nav</NavLink></li>
                     </ul>
                 }
                 {
