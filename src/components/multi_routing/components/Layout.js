@@ -5,7 +5,8 @@ import {
   Route,
   Switch,
   Link,
-  Redirect
+  Redirect,
+  NavLink
 } from 'react-router-dom';
 import Home from './Home';
 import Profile from './Profile';
@@ -17,13 +18,13 @@ export default class App extends Component {
       <Router>
         <div className="flex-column app-frame">
           <div className="flex-row align-center header container" style={{ width: '100%' }}>
-            <Link to="/alt">Header</Link>
+            <NavLink activeClassName="active" to="/alt">Header</NavLink>
           </div>
           <div className="flex flex-row app-main">
 
             <div className="flex-column sidebar container">
-              <Link to="/nav/home">Home</Link>
-              <Link to="/nav/profile">Profile</Link>
+              <NavLink activeClassName="active" to="/nav/home">Home</NavLink>
+              <NavLink activeClassName="active" to="/nav/profile">Profile</NavLink>
             </div>
 
             <div className="app-body flex">
