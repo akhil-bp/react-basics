@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import IntegrationNotistack from "./sneakbar"
 const env = require('./env')
 
 export default class header extends React.Component {
@@ -34,7 +35,7 @@ export default class header extends React.Component {
                         <li><NavLink activeClassName="active" to="/lazy-div">LAzy load DIV or Component...footer is also lazy loaded</NavLink></li>
                         <li><NavLink activeClassName="active" to="/register-form">form normal all validations</NavLink></li>
                         <li><NavLink activeClassName="active" to="/hook">hook</NavLink></li>
-                        <li><NavLink activeClassName="active" to="/nav/home">Nav</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/nav/home">Nav & Rxjs</NavLink></li>
                     </ul>
                 }
                 {
@@ -110,6 +111,8 @@ export default class header extends React.Component {
                         </defs>
                     </svg>
                 }
+
+                <IntegrationNotistack data={{type : 'success'}} />
             </div>
         )
     }
