@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
-    "axios": "^0.19.0",
+    "axios": "^0.21.2",
     "notistack": "^1.0.2",
     "react": "^16.8.6",
     "react-content-loader": "^5.0.4",
