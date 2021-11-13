@@ -4,6 +4,8 @@ import './App.css';
 import React, { Component, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import requireAuth from './components/authComponent';
+import Wrapper from './context/Wrapper';
+
 const Home = lazy(() => import('./components/home'));
 const Header = lazy(() => import('./components/header'))
 const Footer = lazy(() => import('./components/footer'))
@@ -42,13 +44,14 @@ export default class App extends Component {
             <Route path="/form" component={requireAuth(Form)} exact />
             <Route path="/card" component={requireAuth(Card)} exact />
             <Route path="/dynamic" component={requireAuth(Dynamic)} exact />
-            <Route path="/param/:id/:val" component={requireAuth(Param)} />
-            <Route path="/formtwo" component={requireAuth(Formtwo)} />
-            <Route path="/header" component={requireAuth(Header)} />
-            <Route path="/variable-render-html" component={requireAuth(VariableRenderHtml)} />
-            <Route path="/lazy-div" component={requireAuth(LazyLoad)} />
-            <Route path="/hook" component={Greeting} />
+            <Route path="/param/:id/:val" component={requireAuth(Param)} exact/>
+            <Route path="/formtwo" component={requireAuth(Formtwo)} exact/>
+            <Route path="/header" component={requireAuth(Header)} exact/>
+            <Route path="/variable-render-html" component={requireAuth(VariableRenderHtml)} exact/>
+            <Route path="/lazy-div" component={requireAuth(LazyLoad)} exact/>
+            <Route path="/hook" component={Greeting} exact/>
             <Route path="/nav" name="nav" render={props => <Layout {...props} />} />
+            <Route path="/context" name="context" render={props => <Wrapper {...props} />} />
             {/* {!this.state.auth &&  <Redirect push to="/"/> } */}
           </Switch>
           <Footer />

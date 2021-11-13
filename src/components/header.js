@@ -36,6 +36,7 @@ export default class header extends React.Component {
                         <li><NavLink activeClassName="active" to="/register-form">form normal all validations</NavLink></li>
                         <li><NavLink activeClassName="active" to="/hook">hook</NavLink></li>
                         <li><NavLink activeClassName="active" to="/nav/home">Nav & Rxjs</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/context">Context</NavLink></li>
                     </ul>
                 }
                 {
@@ -112,7 +113,7 @@ export default class header extends React.Component {
                     </svg>
                 }
 
-                <IntegrationNotistack data={{type : 'success'}} />
+                <IntegrationNotistack data={{ type: 'success' }} />
             </div>
         )
     }
